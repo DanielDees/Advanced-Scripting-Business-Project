@@ -68,11 +68,10 @@ class QueryBuilder {
 	
 			QueryBuilder::add(table_name, [
 				table_column_name => $value1,
-				table_column_name2 => $value2
+				table_column_name2 => $value2,
 				etc => $etc
 			])
 		*/
-
 
 		$sql = sprintf(
 				'INSERT INTO %s (%s) VALUES (%s\')',
