@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed');
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+}
+
+#banner-top-home {
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	background-color: #333333;
+	text-align: left;
+	/*Border*/
+	border-top: 0;
+	border-bottom: .3em;
+	border-left: 0;
+	border-right: 0;
+	border-color: #e64946;
+	border-color: #12beed;
+	border-style: solid;
+	/*End Border*/
+	z-index: 1;
+	position: fixed;
+	top: 0;
+}
+
+#banner-top {
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	background-color: #333333;
+	text-align: left;	
+	/*Border*/
+	border-top: 0;
+	border-bottom: .3em;
+	border-left: 0;
+	border-right: 0;
+	border-color: #e64946;
+	border-color: #12beed;
+	border-style: solid;
+}
+
+#main-div {
+	background-image: url("fhp_img1.jpg");	
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+#title-img {
+	float: left;
+	clear: left;
+	padding: 0;
+	margin: 0;
+	width: 14em;
+}
+
+/*Nav Bar*/
+ul {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;	
+}
+
+li {
+	float: left;
+	color: white;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: sans-serif;
+	padding-left: 2em;
+	padding-right: 2em;	
+	padding-top: 1.55em;
+	padding-bottom: 1.55em;
+	transition: linear .3s;
+}
+
+.home {
+	background-color: #e64946;
+	background-color: #12beed;
+}
+
+.about {
+	background-color: #e64946;
+	background-color: #12beed;
+}
+
+.contact {
+	background-color: #e64946;
+	background-color: #12beed;
+}
+
+.institute {
+	background-color: #12beed;
+}
+
+li:hover {
+	background-color: #e64946;
+	background-color: #12beed;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+/*Dropdown*/
+.dropdown {
+	float: left;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.dropdown-content {	
+	margin-top: 4em;
+	padding: 0;
+	display: none;
+    position: absolute;
+    background-color: #191919;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+	font-family: arial;
+    padding: 1em .2em;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #12beed;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/*End Dropdown*/
+/*End Nav Bar*/
+
+h1 {
+	margin: 0;
+	letter-spacing: .05em;
+	color: #333333;
+	font-family: 'Barlow Condensed', arial;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+	font-size: 3em;	
+	padding-left: .5em;
+	padding-right: .5em;
+	padding-top: 2em;
+	margin-bottom: 2em;
+}
+
+/*Bottom Div*/
+#bottom-text {
+	margin-top: 0;
+	padding-top: .5em;
+	position: absolute;
+	bottom: -12em;
+	width: 100%;	
+	background-color: rgba(255, 255, 255, 0.25);
+	background-color: #333333;
+}
+
+#scroll-arrow-left {
+	height: 1em;
+	width: 2em;
+	padding-left: 1.5em;
+	padding-top: 1.5em;
+	position: absolute;
+	left: 0;
+	display: none;
+}
+
+#scroll-arrow-right {
+	height: 1em;
+	width: 2em;
+	padding-right: 1.5em;
+	padding-top: 1.5em;
+	position: absolute;
+	right: 0;
+	display: none;
+}
+
+#bt-title {
+	color: white;
+	font-weight: bold;
+	font-size: 1em;
+	font-family: arial;
+	text-align: center;
+	padding-left: .5em;
+	padding-right: .5em;
+	line-height: 2em;
+}
+
+#bt-content {
+	color: white;
+	padding: .5em;
+	padding-left: 2em;
+	padding-right: 2em;
+	font-weight: normal;
+	font-size: 1em;
+	font-family: arial;
+	text-align: left;
+	line-height: 2em;	
+}
+/*End Bottom Div*/
+
+
+/*About Page*/
+#div-section-holder {
+	margin-top: 1.5em;
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+		
+	/*Border*/
+	border-top: 0;
+	border-bottom: .02em;
+	border-left: 0;
+	border-right: 0;
+	border-color: #333333;
+	border-style: solid;
+}
+
+#section-name {
+	margin: 0;
+	padding: 0;
+	color: #e64946;
+	
+	color: #12beed;
+	
+	text-align: left;
+	font-size: 2em;
+	font-family: arial;
+	font-weight: normal;		
+}
+
+#section-title {
+	margin: 0;
+	padding: 0;
+	color: #e64946;
+	color: #12beed;
+	text-align: left;
+	font-size: 1.2em;
+	font-family: arial;
+	font-weight: normal;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+#section-about {
+	margin: 0;
+	padding: 0;
+	margin-top: 2em;
+	text-align: left;
+	font-size: 1em;
+	font-family: arial;
+	font-weight: normal;
+	line-height: 1.5em;
+}
+/*End About Page*/
+
+/*Institute Page*/
+#background-div{
+	width: 100%;
+	background-color: #ececef;	
+}
+#img-and-text-holder {
+	display: block;
+	margin:auto;
+	/*background-image: url("cifc_banner_img.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;*/
+	padding: 2em;
+}
+#cifc-banner-img {
+	float: right;
+	width: 60%;
+	/*border: .5em;
+	border-color: white;
+	border-style: solid;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); */
+
+
+	margin-top: 0;
+	margin-bottom: 2em;
+	margin-left: 1em;
+	/*margin-right: .3em;*/
+	
+	display: none;
+
+}
+
+#top-banner {
+	width: 100%;
+	background-color: #12beed;
+}
+
+#cifc-heading {
+	display: block;
+	text-align: left;
+	margin: 0;
+	padding-top: .75em;
+	padding-bottom: .75em;
+	padding-left: .5em;
+	padding-right: .5em;
+
+}
+/*End Institute Page*/
+
+
+/*Tablet Screens*/
+@media screen and (max-width: 750px) {
+	#title-img {
+		width: 100%
+	}
+	
+	#banner-top-home {
+		text-align: center;
+		position: static;
+	}
+	
+	#banner-top {
+		text-align: center;
+	}
+	
+	li {
+		font-size: .75em;
+	}
+	
+	#bottom-text {
+		background-color: transparent;
+		position: static;
+	}
+	
+	#bt-title {
+		color: #333333;		
+		font-size: 1.2em;
+		font-family: arial;
+		font-weight: normal;
+	}
+	
+	#bt-content {
+		color: #333333;
+	}
+	
+	#main-div {
+		background-color: white;
+		background-image: none;
+		position: static;
+		height: auto;
+	}
+	
+	h1 {
+		color: #333333;
+		margin: 0;
+		padding-bottom: .5em;
+		padding-top: 1.5em;	
+		font-size: 2.5em;
+	}
+	
+	.dropdown-content {	
+	margin-top: 3em;
+	}
+}
+
+/*Small Screens*/
+@media screen and (max-width: 550px) {
+	ul {
+		/*display: none;*/
+	}
+	li {
+		float: none;
+		margin: 0;
+		padding: 0;
+		padding: .75em;	 
+		margin: auto;
+		display: block;
+	}
+	
+	li:hover {
+		background-color: transparent;
+	}
+		
+	.home {
+		background-color: transparent;
+		color: #12beed;
+	}
+	
+	.institute {
+		background-color: transparent;
+		color: #12beed;
+	}
+	
+	.contact {
+		background-color: transparent;
+		color: #12beed;
+	}
+	
+	.about {
+		background-color: transparent;
+		color: #12beed;
+	}
+	
+	.dropdown {
+		width: 100%;
+		float: none;
+	}
+	
+	.dropdown-content {
+		margin-top: 0;
+		position: relative;
+		background-color: transparent;
+		box-shadow: none;
+	}
+	
+	.dropdown-content a {
+		padding: .5em .2em;
+	}
+	
+	.dropdown-content a:hover {
+		background-color: transparent;
+	}
+	
+	
+}
