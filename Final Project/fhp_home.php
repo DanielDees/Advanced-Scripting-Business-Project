@@ -1,5 +1,5 @@
 <html>
-
+<?php session_start(); ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
@@ -13,7 +13,7 @@
 		<img id="title-img" src="fhp_logo.png"></img>
 
 		<ul>
-			<a href="fhp_home.html"><li class="home">Home</li></a>
+			<a href="fhp_home.php"><li class="home">Home</li></a>
 			
 			<a href="fhp_institute.html"><li>Institute</li></a>
 			
@@ -25,7 +25,15 @@
 						<a href="fhp_about.html">Freedom's Hill Primer</a>
 						<a href="fhp_about_institute.html">Institute</a>
 					</div>
-			</div> 		
+			</div> 
+			<?php 
+			if($_SESSION != null){
+				echo "<a href=\"dashboard.php\"><li>Dashboard</li></a>"; 
+				echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
+			}else{
+				echo "<a href=\"fhp_login.php\"><li>login</li></a>"; 
+			}
+			?> 		
 			
 		</ul>
 	</div>

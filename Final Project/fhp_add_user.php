@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 
-<!-- Author:      Dylan Porter                              -->
-<!-- Date:        11/15/2017                                -->
-<!-- Purpose:     Login page for authors, editors and admin --> 
+<?php 
 
+/*
+*Name: Cameron Cromer
+*Date: Nov. 19, 2017
+*Purpose: to add new users to db
+*/
+
+
+session_start(); 
+if($_SESSION['account'] !="admin"){
+	header("Location: fhp_home.php");
+}
+
+?>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -110,10 +121,10 @@
 		<div class="login">
 			<div class="login-screen">
 				<div class="app-title">
-					<h1>Login</h1>
+					<h1>Add New User</h1>
 				</div>
 	
-				<div class="login-form">
+				<form action="add_user.php" method="post" class="login-form">
 					<?php
                     if (isset($_GET['error']))
                     {
@@ -122,21 +133,42 @@
             			echo "</div>";
                     }
         			?>
-					<form action="fhp_verify_user.php" method="post" id="login_form">
-    					<div class="control-group">
-    						<input type="text" class="login-field" placeholder="username" name="username" id="username" required>
-    						<label class="login-field-icon fui-user" for="login-name"></label>
-    					</div>
-    	
-    					<div class="control-group">
-    						<input type="password" class="login-field" placeholder="password" name="password" id="password" required>
-    						<label class="login-field-icon fui-lock" for="login-pass"></label>
-    					</div>
-    					
-    					<input style="text-align: center;" class="btn btn-primary btn-large btn-block" type="submit" name="login" id="login" value="Login">
-    					<a class="btn btn-primary btn-large btn-block" href="fhp_institute.html">Back</a>
-					</form>
-				</div>
+				
+					<div class="control-group">
+						<input type="text" class="login-field" placeholder="First Name" id="first" name="first" required>
+					</div>
+	
+					<div class="control-group">
+						<input class="login-field" placeholder="Last Name" id="last" name="last" required>
+					</div>
+
+					<div class="control-group">
+						<input type="email" class="login-field" placeholder="Email" id="email" name="email" required>
+					</div>
+
+					<div class="control-group">
+						<input class="login-field" placeholder="username" id="username" name="username" required>
+					</div>
+					
+					<div class="control-group">
+						<input type="password" class="login-field" placeholder="Password" id="password" name="password" required>
+					</div>
+
+					<div class="control-group">
+						<input type="password" class="login-field" placeholder="Confrim Password" id="repassword" name="repassword" required>
+					</div>
+
+					<div class="control-group">
+						<select id="account" name="account" style="padding: 16px 20px; font-size: 18px">
+						  <option value="AUTHOR">Author</option>
+						  <option value="EDITOR">Editor</option>
+						  <option value="ADMIN">Admin</option>
+						</select>
+					</div>
+
+					<button class="btn btn-primary btn-large btn-block" type="submit">Create</button>
+					<a class="btn btn-primary btn-large btn-block" href="dashboard.php">Back</a>
+				</form>
 			</div>
 		</div>
 	</body>

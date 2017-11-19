@@ -5,10 +5,10 @@
 /*
 *Name: Cameron Cromer
 *Date: Nov. 19, 2017
-*Purpose: to add new articles to db
+*Purpose: to add new category to db
 */
 session_start();
-if($_SESSION['account'] == ""){
+if($_SESSION['account'] == "" || $_SESSION['account'] == "author"){
 	header("Location: fhp_home.php");
 }
     require_once('connect.php');
@@ -43,26 +43,18 @@ if($_SESSION['account'] == ""){
 	
 <main>
 <div id="div-section-holder">
-	<h1 id="section-name">Add Article</h1>
+	<h1 id="section-name">Add Category</h1>
 </div>
 
 <div id="div-section-holder">
 	<form action="" method="post">
       	<div class="row">
         <div class="col-md-12">
-        <h3>Article Title:</h3>
-        <textarea name="arttitle" class="tinymce-100"></textarea>
-      <br>
-	    <h3>Content:</h3>
-      <textarea name="artcontent" class="tinymce-300"></textarea>
-	    <br>
-	    <br>
-	    <select id="artcategory" name="artcategory">
-		  <?php get_category(); ?>
-		</select>
+        <h3>Category:</h3>
+        <textarea name="artcategory" class=""></textarea>
 		<br>
 		<br>
-	    <button class="button" type="submit" name="submit">Create Test</button>
+	    <button class="button" type="submit" name="submit">Create category</button>
 	    </div>
       	</div>
   	</form>
@@ -72,16 +64,11 @@ if($_SESSION['account'] == ""){
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
-              $title = escape_string($_POST['arttitle']);
-              $content = escape_string($_POST['artcontent']);
-              $author = $_SESSION['firstname'] . " " . $_SESSION['lastname'];
-              $date = date("Y-m-d h:i:sH");
-              $date = substr($date, 0, -2);
-              $category = escape_string($_POST['artcategory']);
+  $category = escape_string($_POST['artcategory']);
 
-              $query = query("INSERT INTO Post (title, content, author, timestamp, category, is_live) VALUES ('$title', '$content', '$author', '$date', '$category', 0)");
-              confirm($query);
-              header("Location: dashboard.php");
+  $query = query("INSERT INTO Categories (name) VALUES ('$category')");
+  confirm($query);
+  header("Location: dashboard.php");
 }
 
 ?>

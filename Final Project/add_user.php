@@ -20,7 +20,7 @@
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     $account = $_POST['account'];
-    
+    var_dump($_POST);
     // sanitize user input
     $firstname = trim($firstname);
     $lastname = trim($lastname);
@@ -37,7 +37,7 @@
     $password = mysqli_real_escape_string($conn, $password);
     $repassword = mysqli_real_escape_string($conn, $repassword);
     $account = mysqli_real_escape_string($conn, $account);
-    $salt = strtoupper(bin2hex(random_bytes(20)));
+    $salt = strtoupper(bin2hex(openssl_random_pseudo_bytes(20)));
     
     // update database with the new user information
     $sql = 'INSERT INTO users (Id, first_name, last_name, email, username, account_type)
@@ -52,5 +52,5 @@
     
     mysqli_close($conn);
     
-    //header("Location: REDIRECT");
+    header("Location: dashboard.php");
 ?>

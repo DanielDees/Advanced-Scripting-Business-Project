@@ -10,14 +10,16 @@
     //TODO: make sure the queries are retrieving the correct data
     //TODO: change the headers to redirect to the correct pages
     
-  
+
+
     // open connection to database
     require_once('connect.php');
+
     
     // get user input and sanitize it
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
+    var_dump($_POST);
     // sanitize user input
     $username = trim($username);
     $password = trim($password);
@@ -51,7 +53,7 @@
         $sql = 'SELECT account_type, first_name, last_name, email
                 FROM users
                 WHERE username="' . $username . '"';
-        $result = $connection->query($sql);
+        $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         
         $account = $row['account_type'];
@@ -59,7 +61,7 @@
         $lastname = $row['last_name'];
         $email = $row['email'];
         
-        mysqli_close($connection);
+        mysqli_close($conn);
         
         // check what permissions the user has
         // set session variables for user info
@@ -70,25 +72,25 @@
             $_SESSION['lastname'] = $lastname;
             $_SESSION['email'] = $email;
             
-            header("Location: AUTHORPAGE.PHP");
+            header("Location: dashboard.php");
         }
-        else if ($role == "EDITOR")
+        else if ($account == "EDITOR")
         {
             $_SESSION['account'] = "editor";
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $_SESSION['email'] = $email;
             
-            header("Location: EDITORPAGE.PHP");
+            header("Location: dashboard.php");
         }
-        else if ($role == "ADMIN")
+        else if ($account == "ADMIN")
         {
             $_SESSION['account'] = "admin";
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $_SESSION['email'] = $email;
             
-            header("Location: ADMINPAGE.PHP");
+            header("Location: dashboard.php");
         }
     }
     else
@@ -97,5 +99,5 @@
         header("Location: fhp_login.php?error=true");
     }
     
-    mysqli_close($connection);
+    mysqli_close($conn);
 ?>

@@ -109,7 +109,7 @@
 					<h1>Login</h1>
 				</div>
 	
-				<div class="login-form">
+				<form action="fhp_verify_user.php" method="post" class="login-form">
 					<?php
                     if (isset($_GET['error']))
                     {
@@ -120,18 +120,18 @@
         			?>
 				
 					<div class="control-group">
-						<input type="text" class="login-field" placeholder="username" id="login-name">
+						<input type="text" class="login-field" placeholder="username" id="username" name="username">
 						<label class="login-field-icon fui-user" for="login-name"></label>
 					</div>
 	
 					<div class="control-group">
-						<input type="password" class="login-field" placeholder="password" id="login-pass">
+						<input type="password" class="login-field" placeholder="password" id="password" name="password">
 						<label class="login-field-icon fui-lock" for="login-pass"></label>
 					</div>
 					
-					<a class="btn btn-primary btn-large btn-block" href="fhp_verify_user.php">Login</a>
+					<button class="btn btn-primary btn-large btn-block" type="submit">Login</button>
 					<a class="btn btn-primary btn-large btn-block" href="fhp_institute.html">Back</a>
-				</div>
+				</form>
 			</div>
 		</div>
 	</body>

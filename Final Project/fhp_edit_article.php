@@ -2,21 +2,54 @@
 
 <head>
 <?php
+
 /*
 *Name: Cameron Cromer
 *Date: Nov. 19, 2017
-*Purpose: to add new articles to db
+*Purpose: to edit articles. ADMIN and EDITOR can see all. AUTHOR can only see their own. 
 */
 session_start();
+
+//kicks unauthorized users
 if($_SESSION['account'] == ""){
 	header("Location: fhp_home.php");
 }
-    require_once('connect.php');
+
+//required for db interactions
+require_once('connect.php');
+
+//checks for get set and kicks if not set
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+
+    //checks to see if account level is author
+    if ($_SESSION['account'] == "author")
+    {
+	    $query = query("SELECT * FROM Post WHERE id = '$id'");
+	  	confirm($query);
+	  	$post = fetch_array($query);
+	  	$fname = $_SESSION['firstname'];
+		$lname = $_SESSION['lastname'];
+		$name  = $fname . ' ' . $lname;
+
+		//checks account name to the articles author's name to ensure they are allowed (ONLY FOR ACCOUNT LEVLE: AUTHOR)
+	  	if($post['author'] != $name)
+	  	{
+	  		header("Location: fhp_article_list.php");
+	  	}
+ 	}
+}else{
+	header("Location: fhp_article_list.php");
+}
+
+    $query = query("SELECT * FROM Post WHERE id = '$id'");
+    confirm($query);
+    $results = fetch_array($query);
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="fhp_test.css">
-<title>FHP About</title>
+<title>FHP Edit Article</title>
 </head>
 
 <body>
@@ -43,26 +76,22 @@ if($_SESSION['account'] == ""){
 	
 <main>
 <div id="div-section-holder">
-	<h1 id="section-name">Add Article</h1>
+	<h1 id="section-name">Edit Article</h1>
 </div>
 
 <div id="div-section-holder">
 	<form action="" method="post">
       	<div class="row">
         <div class="col-md-12">
-        <h3>Article Title:</h3>
-        <textarea name="arttitle" class="tinymce-100"></textarea>
-      <br>
-	    <h3>Content:</h3>
-      <textarea name="artcontent" class="tinymce-300"></textarea>
+        	<?php get_article_edit($id); ?>
 	    <br>
 	    <br>
 	    <select id="artcategory" name="artcategory">
-		  <?php get_category(); ?>
+		  <?php get_category_edit($results['category']); ?>
 		</select>
 		<br>
 		<br>
-	    <button class="button" type="submit" name="submit">Create Test</button>
+	    <button class="button" type="submit" name="submit">Update Article</button>
 	    </div>
       	</div>
   	</form>
@@ -78,18 +107,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
               $date = date("Y-m-d h:i:sH");
               $date = substr($date, 0, -2);
               $category = escape_string($_POST['artcategory']);
+              $id = $results['id'];
 
-              $query = query("INSERT INTO Post (title, content, author, timestamp, category, is_live) VALUES ('$title', '$content', '$author', '$date', '$category', 0)");
+              $query = query("UPDATE Post SET title='$title', content='$content', timestamp='$date', category = '$category' WHERE id=$id");
               confirm($query);
-              header("Location: dashboard.php");
-}
 
-?>
+             echo "<script type=\"text/javascript\">window.location.replace(\"fhp_article_list.php\")</script>";
+}?>
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="tinymce/tinymceinit-100.js"></script>
 <script type="text/javascript" src="tinymce/tinymceinit-200.js"></script>
 <script type="text/javascript" src="tinymce/tinymceinit-300.js"></script>
-
 </main>
 </html>
