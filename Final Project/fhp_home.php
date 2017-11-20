@@ -15,9 +15,9 @@
 		<ul>
 			<a href="fhp_home.php"><li class="home">Home</li></a>
 			
-			<a href="fhp_institute.html"><li>Institute</li></a>
+			<a href="fhp_institute.php"><li>Institute</li></a>
 			
-			<a href="#"><li>Contact</li></a>
+			<a href="fhp_contact.html"><li>Contact</li></a>
 			
 			<div class="dropdown">
 				<li>About &#x25BC</li>
@@ -38,7 +38,7 @@
 		</ul>
 	</div>
 	
-	<div id="main-div">
+	<div id="main-div">		
 		<h1>Welcome to Freedom's Hill Primer</h1>
 	</div>
 	
@@ -47,7 +47,7 @@
 	<div id="bottom-text">
 		<img id="scroll-arrow-left" src="double_down_icon.png">
 		<h3 id="bt-title">
-			Freedom’s Hill Primer is a platform to promote scholarly 
+			Freedom's Hill Primer is a platform to promote scholarly 
 			pursuits within the humanities that provide a window towards 
 			a more timeless truth.
 		</h3> 
