@@ -6,6 +6,8 @@
 	*/
 
 	session_start();
+	//In case of second session start on nav includes
+	error_reporting(0);
 
 	//Kick the user out to home if not logged in
 	if(!$_SESSION['account']){
