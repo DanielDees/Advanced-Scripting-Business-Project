@@ -132,10 +132,10 @@ footer {
 	font-size: .75em;
 	padding-top: .5em;
 	padding-bottom: .5em;
+	z-index: 100000000;
 }
 
 footer a {
-	
 	transition: linear .3s;
 }
 
@@ -416,7 +416,6 @@ h1 {
 /*Institute Page*/
 #top-banner {
 	width: 100%;
-	background-color: #12beed;
 	background-color: #21376d;
 }
 
@@ -425,12 +424,144 @@ h1 {
 	display: block;
 	text-align: left;
 	margin: 0;
-	padding-top: .5em;
-	padding-bottom: .5em;
+	padding-top: .2em;
+	padding-bottom: .2em;
 	padding-left: .5em;
 	padding-right: .5em;
 }
+
+#all-article-view {
+	display: block;
+	margin: auto;
+	width: 90%;
+	text-align: center;
+}
+
+#article-preview-holder-left {
+	display: inline-block;
+	margin: 2em;
+	width: 35em;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+	padding: .5em;
+	transition: linear .3s;
+}
+
+#article-preview-holder {
+	display: inline-block;
+	margin: 2em;
+	width: 33em;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+	padding: .5em;
+	transition: linear .3s;
+}
+
+#article-preview-holder:hover {
+	background-color: #cccccc;
+}
+
+#preview-img {
+	position: relative;
+	top:0;
+	left: 0;
+	width: 15em;
+}
+
+#title-and-info-div {
+	margin: 0;
+	padding: 0;
+	float: right;
+	width: 17em;
+	padding-left: .5em;
+	cursor: pointer;
+}
+
+#art-title {
+	font-family: arial;
+	padding-right: .3em;
+	text-align: left;	
+	padding: 0;
+	margin: 0;
+}
+
+#tiny-icon {
+	display: inline-block;
+	width: .6em;
+	height: auto;
+}
+
+#info-text {
+	display: inline-block;
+	font-family: arial;
+	font-weight: normal;
+	font-size: .75em;
+	color: gray;	
+}
 /*End Institute Page*/
+
+/*Admin Login Page*/
+#admin-subtitle-login {
+	float: left;
+	color: white;
+	font-family: 'Barlow Condensed', arial;
+	padding-right: .5em;
+	padding-left: .5em;	
+	padding-top: .5em;
+	padding-bottom: .3em;
+}	
+
+#login-holder {
+	display: block;
+	margin: auto;
+	width: 25em;
+	margin-top: 2em;
+	text-align: center;
+	/*border: 1px;
+	border-color: #21376d;
+	border-style: solid;
+	border-radius: 5px;*/
+	padding: 1em;
+
+}
+
+#login-img {
+	display: block;
+	margin: auto;
+	width: 15em;
+	height: auto;
+	margin-bottom: 2em;
+}
+
+#login-input { 
+	display: block;
+	margin: auto;
+	text-align: left;
+	padding-left: .5em;
+	border: 0;
+	border-radius: 5px;	
+	width: 100%;
+	height: 3em;
+	background-color: #ECF0F1;
+}
+
+#login-input:focus {
+	outline: none;
+	border: 1px;
+	border-color: #21376d;
+	border-style: solid;
+}
+
+#login-form-submit:hover {
+	background-color: white;
+	color: #21376d;
+}
+
+#contact-form-submit:focus {
+	outline: none;
+	color: #21376d;
+}
+/*End Admin Login Page*/
 
 /*Admin Dashboard Page*/
 #block-holder {
@@ -501,7 +632,6 @@ h1 {
 	height: 6em;
 	width: 6em;
 }
-
 
 /*End Admin Dashboard Page*/
 
@@ -699,7 +829,70 @@ h1 {
 	color: #21376d;
 }
 
+input[type="file"] {
+	float: left;
+	padding-left: 1.5em;
+}
+
+#input-file-btn {
+	border: none;
+	display: block;
+	background-color: red;
+}
+
 /*End Admin Add Articles Page*/
+
+/*Admin Add Users Page*/
+#add-user-form-div {
+	display: block;
+	margin: auto;
+	width: 30%;
+	padding-bottom: 1em;
+	padding-left:.5em;
+	padding-right: .5em;
+	border: 1px;
+	border-color: #21376d;
+	border-style: solid;
+}
+
+#add-form {
+	text-align: center;
+}
+
+#input-user-label {
+	text-align: left;
+	font-family: arial;
+	font-size: 1em;
+	margin-left: 1.2em;
+	color: black;
+}
+
+select {
+	width: 93%;
+	border: 1px;
+	border-color: #21376d;
+	border-style: solid;
+	border-radius: 5px;
+	background-color: transparent;
+	height: 2.5em;
+	padding: .3em;
+}
+
+select:focus {
+	outline: none;
+	border-color: #a6afc4;
+	
+}
+
+option {
+	z-index: 1;
+}
+
+option:hover {
+	background-color: red;
+}
+
+/*End Admin Add Users Page*/
 
 /*Tablet Screens*/
 @media screen and (max-width: 750px) {
@@ -753,6 +946,8 @@ h1 {
 	
 	#cifc-heading {
 		text-align: center;
+		padding-top: .5em;
+		padding-bottom: .5em;
 	}
 	
 	.dropdown-content {	
@@ -788,6 +983,11 @@ h1 {
 		border-style: solid;
 	}
 	
+	footer {
+		clear: both;
+		position: relative;
+	}
+	
 	#contact-form {
 		float: none;
 		display: block;
@@ -805,12 +1005,20 @@ h1 {
 	}
 	
 	#contact-form-submit {
-		background-color: #12beed;
+		background-color: #21376d;
 		color: white;
 	}
 	
 	#contact-form-submit:hover {
-		background-color: transparent;
+	    background-color: #21376d;
+	    color: white;
+	}
+	
+	#article-preview-holder {
+		display: block;
+		margin: auto;
+		margin-top: 1em;
+		margin-bottom: 1em;	
 	}
 }
 
@@ -834,22 +1042,22 @@ h1 {
 		
 	.home {
 		background-color: transparent;
-		color: #12beed;
+		color: #21376d;
 	}
 	
 	.institute {
 		background-color: transparent;
-		color: #12beed;
+		color: #21376d;
 	}
 	
 	.contact {
 		background-color: transparent;
-		color: #12beed;
+		color: #21376d;
 	}
 	
 	.about {
 		background-color: transparent;
-		color: #12beed;
+		color: #21376d;
 	}
 	
 	.dropdown {
