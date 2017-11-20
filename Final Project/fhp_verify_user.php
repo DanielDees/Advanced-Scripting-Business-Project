@@ -52,7 +52,7 @@
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         
-        $account = $row['account_type'];
+        $account = strtolower($row['account_type']);
         $firstname = $row['first_name'];
         $lastname = $row['last_name'];
         $email = $row['email'];
@@ -61,27 +61,9 @@
         
         // check what permissions the user has
         // set session variables for user info
-        if ($account == "AUTHOR")
-        {
-            $_SESSION['account'] = "author";
-            $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $lastname;
-            $_SESSION['email'] = $email;
+        if ($account == "admin" || $account == "editor" || $account == "author") {
             
-            header("Location: dashboard.php");
-        }
-        else if ($account == "EDITOR")
-        {
-            $_SESSION['account'] = "editor";
-            $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $lastname;
-            $_SESSION['email'] = $email;
-            
-            header("Location: dashboard.php");
-        }
-        else if ($account == "ADMIN")
-        {
-            $_SESSION['account'] = "admin";
+            $_SESSION['account'] = $account;
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $_SESSION['email'] = $email;
