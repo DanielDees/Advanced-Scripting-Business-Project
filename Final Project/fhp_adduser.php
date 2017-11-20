@@ -3,11 +3,9 @@
     // Date:        11/16/2017
     // Purpose:     Add a user to the database
 
-
     // TODO: change POST variables to match the form
     // TODO: redirect page to the correct place
     // TODO: add error catching for matching passwords and valid inputs
-
 
     // open connection to database
     require_once('connect.php');
@@ -20,15 +18,6 @@
     $password = trim($_POST['password']);
     $repassword = trim($_POST['repassword']);
     $account = trim($_POST['account']);
-    
-    // sanitize user input
-    // $firstname = trim($firstname);
-    // $lastname = trim($lastname);
-    // $email = trim($email);
-    // $username = trim($username);
-    // $password = trim($password);
-    // $repassword = trim($repassword);
-    // $account = trim($account);
     
     $firstname = mysqli_real_escape_string($conn, $firstname);
     $lastname = mysqli_real_escape_string($conn, $lastname);

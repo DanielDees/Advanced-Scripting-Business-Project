@@ -20,15 +20,6 @@
     $account = trim($_POST['account']);
     var_dump($_POST);
     
-    // sanitize user input
-    // $firstname = trim($firstname);
-    // $lastname = trim($lastname);
-    // $email = trim($email);
-    // $username = trim($username);
-    // $password = trim($password);
-    // $repassword = trim($repassword);
-    // $account = trim($account);
-    
     $firstname = mysqli_real_escape_string($conn, $firstname);
     $lastname = mysqli_real_escape_string($conn, $lastname);
     $email = mysqli_real_escape_string($conn, $email);

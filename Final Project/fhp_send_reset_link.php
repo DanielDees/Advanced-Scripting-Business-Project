@@ -13,7 +13,6 @@
     {
         // grab and santize user input
         $email = trim($_POST['email']);
-        //$email = trim($email);
         $email = mysqli_real_escape_string($conn, $email);
         
         // see if there is a user with that email in the database

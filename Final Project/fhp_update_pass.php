@@ -13,15 +13,12 @@
     {
         // grab and santize user input
         $password = trim($_POST['password']);
-        //$password = trim($password);
         $password = mysqli_real_escape_string($conn, $password);
         
         $repassword = trim($_POST['repassword']);
-        //$repassword = trim($repassword);
         $repassword = mysqli_real_escape_string($conn, $repassword);
         
         $user = trim($_POST['user']);
-        //$user = trim($user);
         $user = mysqli_real_escape_string($conn, $user);
         
         // update the password of the user
