@@ -11,6 +11,14 @@
 					<a href="fhp_about.php">Freedom's Hill Primer</a>
 					<a href="fhp_about_institute.php">Institute</a>
 				</div>
-		</div> 									
+		</div> 	
+		<?php 
+			if($_SESSION != null){
+				echo "<a href=\"dashboard.php\"><li>Dashboard</li></a>"; 
+				echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
+			} else {
+				echo "<a href=\"fhp_login.php\"><li>login</li></a>"; 
+			}
+		?>								
 	</ul>
 </div>
