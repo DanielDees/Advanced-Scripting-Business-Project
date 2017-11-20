@@ -13,7 +13,6 @@
 
 	<div id="banner-top">
 		<img id="title-img" src="images/fhp_logo.png"></img>
-
 		<ul>
 			<a href="fhp_home.php"><li>Home</li></a>
 			<a href="fhp_institute.php"><li>Institute</li></a>

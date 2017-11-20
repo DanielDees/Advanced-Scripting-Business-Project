@@ -6,10 +6,9 @@
 </head>
     <div id="banner-top">
     	<img id="title-img" src="images/fhp_logo.png"></img>	
-    	
-    		<ul>
-    			<h2 id="admin-subtitle-login">Send Reset Link to This Email</h2>		
-    		</ul>
+		<ul>
+			<h2 id="admin-subtitle-login">Send Reset Link to This Email</h2>		
+		</ul>
     </div> 
 <body>	
     <div id="login-holder">

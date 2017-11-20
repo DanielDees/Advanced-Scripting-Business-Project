@@ -5,8 +5,8 @@
 	<title>FHP About</title>
 </head>
 <body>
-
-		<div id="banner-top">
+	
+	<div id="banner-top">
 		<img id="title-img" src="images/fhp_logo.png"></img>
 
 		<ul>

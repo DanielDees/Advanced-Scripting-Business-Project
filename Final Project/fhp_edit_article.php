@@ -37,25 +37,9 @@
 </head>
 
 <body>
-
-		<div id="banner-top">
-		<img id="title-img" src="images/fhp_logo.png"></img>
-
-		<ul>
-			<a href="fhp_home.php"><li>Home</li></a>
-			<a href="fhp_institute.php"><li>Institute</li></a>
-			<a href="#"><li>Contact</li></a>
-						
-			<div class="dropdown">
-				<li class="about">About &#x25BC</li>
-					<div class="dropdown-content">
-						<a href="fhp_about.php">Freedom's Hill Primer</a>
-						<a href="fhp_about_institute.php">Institute</a>
-					</div>
-			</div> 									
-		</ul>
-	</div>
-	
+	<?php 
+		require_once('partials/nav_default.php'); 
+	?>
 <main>
 	<div id="div-section-holder">
 		<h1 id="section-name">Edit Article</h1>
@@ -64,17 +48,15 @@
 	<div id="div-section-holder">
 		<form action="" method="post">
 	      	<div class="row">
-	        <div class="col-md-12">
-	        	<?php get_article_edit($id); ?>
-		    <br>
-		    <br>
-		    <select id="artcategory" name="artcategory">
-			  <?php get_category_edit($results['category']); ?>
-			</select>
-			<br>
-			<br>
-		    <button class="button" type="submit" name="submit">Update Article</button>
-		    </div>
+		        <div class="col-md-12">
+		        	<?php get_article_edit($id); ?>
+				    <br><br>
+				    <select id="artcategory" name="artcategory">
+					  <?php get_category_edit($results['category']); ?>
+					</select>
+					<br><br>
+				    <button class="button" type="submit" name="submit">Update Article</button>
+			    </div>
 	      	</div>
 	  	</form>
 	</div>
@@ -95,8 +77,7 @@
 
 		             echo "<script type=\"text/javascript\">window.location.replace(\"fhp_article_list.php\")</script>";
 		}
-	?>
-	<?php 
+
 		require_once('partials/tinymc_footer.php'); 
 	?>
 </main>

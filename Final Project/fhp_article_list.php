@@ -22,25 +22,9 @@
 	<title>FHP About</title>
 </head>
 <body>
-
-		<div id="banner-top">
-		<img id="title-img" src="images/fhp_logo.png"></img>
-
-		<ul>
-			<a href="fhp_home.php"><li>Home</li></a>
-			<a href="fhp_institute.php"><li>Institute</li></a>
-			<a href="#"><li>Contact</li></a>
-						
-			<div class="dropdown">
-				<li class="about">About &#x25BC</li>
-					<div class="dropdown-content">
-						<a href="fhp_about.php">Freedom's Hill Primer</a>
-						<a href="fhp_about_institute.php">Institute</a>
-					</div>
-			</div> 									
-		</ul>
-	</div>
-	
+	<?php 
+		require_once('partials/nav_default.php'); 
+	?>
 <main>
 	<div id="div-section-holder">
 		<h1 id="section-name">Articles</h1>
@@ -50,28 +34,27 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<?php
-
-				if($_SESSION['account'] != "author")
-				{
-					if(isset($_GET['active']))//checks for active change
-		            {
-		                if($_GET['active'] == 2) //deletes the article
-		                {
-		                  $active = $_GET['active'];
-		                  $id = $_GET['id'];
-		                  $query = query("DELETE FROM Post where id=$id");
-		                  confirm($query);
-		                  redirect("fhp_article_list.php");
-		                } else
-		                {
-		                  $active = $_GET['active'];  //changes from active to inactive
-		                  $id = $_GET['id'];
-		                  $query = query("UPDATE Post set is_live = '$active' where id=$id");
-		                  confirm($query);
-		                  redirect("fhp_article_list.php");
-		                }
-		            }
-	        	}
+					if($_SESSION['account'] != "author")
+					{
+						if(isset($_GET['active']))//checks for active change
+			            {
+			                if($_GET['active'] == 2) //deletes the article
+			                {
+			                  $active = $_GET['active'];
+			                  $id = $_GET['id'];
+			                  $query = query("DELETE FROM Post where id=$id");
+			                  confirm($query);
+			                  redirect("fhp_article_list.php");
+			                } else
+			                {
+			                  $active = $_GET['active'];  //changes from active to inactive
+			                  $id = $_GET['id'];
+			                  $query = query("UPDATE Post set is_live = '$active' where id=$id");
+			                  confirm($query);
+			                  redirect("fhp_article_list.php");
+			                }
+			            }
+		        	}
 					get_article();           
 				?>
 			</div>
