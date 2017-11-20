@@ -13,3 +13,8 @@
 	}
 	require_once('connect.php');
 ?>
+
+<!-- Other Head includes -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fhp_test.css">
+<link rel="stylesheet" href="bootstrap.min.css">
