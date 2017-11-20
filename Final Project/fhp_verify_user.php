@@ -13,12 +13,12 @@
     require_once('connect.php');
     
     // get user input and sanitize it
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
     var_dump($_POST);
     // sanitize user input
-    $username = trim($username);
-    $password = trim($password);
+    //$username = trim($username);
+    //$password = trim($password);
     
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);

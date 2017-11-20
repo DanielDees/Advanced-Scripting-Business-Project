@@ -10,23 +10,24 @@
     // open connection to database
     require_once('connect.php');
     
-    // grab all posted variables
-    $firstname = $_POST['first'];
-    $lastname = $_POST['last'];
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $repassword = $_POST['repassword'];
-    $account = $_POST['account'];
+    // grab all posted variables and sanitize
+    $firstname = trim($_POST['first']);
+    $lastname = trim($_POST['last']);
+    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $repassword = trim($_POST['repassword']);
+    $account = trim($_POST['account']);
     var_dump($_POST);
+    
     // sanitize user input
-    $firstname = trim($firstname);
-    $lastname = trim($lastname);
-    $email = trim($email);
-    $username = trim($username);
-    $password = trim($password);
-    $repassword = trim($repassword);
-    $account = trim($account);
+    // $firstname = trim($firstname);
+    // $lastname = trim($lastname);
+    // $email = trim($email);
+    // $username = trim($username);
+    // $password = trim($password);
+    // $repassword = trim($repassword);
+    // $account = trim($account);
     
     $firstname = mysqli_real_escape_string($conn, $firstname);
     $lastname = mysqli_real_escape_string($conn, $lastname);

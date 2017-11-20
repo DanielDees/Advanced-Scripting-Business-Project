@@ -12,18 +12,17 @@
     if (isset($_POST['password']) && isset($_POST['repassword']))
     {
         // grab and santize user input
-        $password = $_POST['password'];
-        $password = trim($password);
+        $password = trim($_POST['password']);
+        //$password = trim($password);
         $password = mysqli_real_escape_string($conn, $password);
         
-        $repassword = $_POST['repassword'];
-        $repassword = trim($repassword);
+        $repassword = trim($_POST['repassword']);
+        //$repassword = trim($repassword);
         $repassword = mysqli_real_escape_string($conn, $repassword);
         
-        $user = $_POST['user'];
-        $user = trim($user);
+        $user = trim($_POST['user']);
+        //$user = trim($user);
         $user = mysqli_real_escape_string($conn, $user);
-        
         
         // update the password of the user
         $sql = "UPDATE logins
