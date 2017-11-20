@@ -26,6 +26,7 @@
 				    <h3>Content:</h3>
 			      		<textarea name="artcontent" class="tinymce-300"></textarea>
 				    	<br><br>
+				    	Category:
 					    <select id="artcategory" name="artcategory">
 						  <?php get_category(); ?>
 						</select>

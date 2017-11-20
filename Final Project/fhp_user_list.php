@@ -24,7 +24,7 @@
 	?>
 <main>
 	<div id="div-section-holder">
-		<h1 id="section-name">Articles</h1>
+		<h1 id="section-name">Users</h1>
 	</div>
 
 	<div class="container">

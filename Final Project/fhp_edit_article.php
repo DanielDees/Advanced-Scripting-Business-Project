@@ -51,6 +51,7 @@
 		        <div class="col-md-12">
 		        	<?php get_article_edit($id); ?>
 				    <br><br>
+				    Category:
 				    <select id="artcategory" name="artcategory">
 					  <?php get_category_edit($results['category']); ?>
 					</select>
