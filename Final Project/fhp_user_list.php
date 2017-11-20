@@ -6,21 +6,21 @@
 		*Date: Nov. 19, 2017
 		*Purpose: to list all users. ADMIN only. ADMIN can delete users here
 		*/
-		session_start();
-		if ($_SESSION['account'] != "admin") {
-			header("Location: fhp_home.php");
-			exit();
-		}
 	    require_once('connect.php');
 	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="fhp_test.css">
 	<link rel="stylesheet" href="bootstrap.min.css">
-<title>FHP About</title>
+	<title>FHP About</title>
 </head>
 <body>
 	<?php 
 		require_once('partials/nav_default.php'); 
+
+		if ($_SESSION['account'] != "admin") {
+			header("Location: fhp_home.php");
+			exit();
+		}
 	?>
 <main>
 	<div id="div-section-holder">
