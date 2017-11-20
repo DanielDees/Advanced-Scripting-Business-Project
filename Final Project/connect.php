@@ -1,5 +1,5 @@
 <?php
-
+	//Database configuration
 	$db_name = 'Advanced_Scripting_Class';
 	$db_pass = '';
 	$db_username = 'root';

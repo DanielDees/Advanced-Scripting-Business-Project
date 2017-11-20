@@ -1,24 +1,10 @@
 <!DOCTYPE html>
-
-<?php 
-
-/*
-*Name: Cameron Cromer
-*Date: Nov. 19, 2017
-*Purpose: to add new users to db
-*/
-
-
-session_start(); 
-if($_SESSION['account'] !="admin"){
-	header("Location: fhp_home.php");
-}
-
-?>
 <html>
 	<head>
+		<?php 
+			require_once('partials/login_check.php'); 
+		?>
 		<meta charset="UTF-8">
-		
 		<title>Login</title>
 		
 		<!-- internal css for the login page -->
@@ -115,8 +101,6 @@ if($_SESSION['account'] !="admin"){
 		</style>
 		<!-- end of internal css -->
 	</head>
-
-
 	<body>
 		<div class="login">
 			<div class="login-screen">
@@ -126,12 +110,12 @@ if($_SESSION['account'] !="admin"){
 	
 				<form action="add_user.php" method="post" class="login-form">
 					<?php
-                    if (isset($_GET['error']))
-                    {
-                        echo "<div class='error'>";
-                            echo "Incorrect username or password!";
-            			echo "</div>";
-                    }
+	                    if (isset($_GET['error']))
+	                    {
+	                        echo "<div class='error'>";
+	                            echo "Incorrect username or password!";
+	            			echo "</div>";
+	                    }
         			?>
 				
 					<div class="control-group">
@@ -172,5 +156,4 @@ if($_SESSION['account'] !="admin"){
 			</div>
 		</div>
 	</body>
-  
 </html>

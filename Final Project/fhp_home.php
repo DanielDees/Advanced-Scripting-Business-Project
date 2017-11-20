@@ -1,40 +1,35 @@
 <html>
 <?php session_start(); ?>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
-<link rel="stylesheet" href="fhp_test.css">
-<title>FHP Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="fhp_test.css">
+	<title>FHP Home</title>
 </head>
-
 <body id="home">	
 
 	<div id="banner-top-home">
-		<img id="title-img" src="fhp_logo.png"></img>
+		<img id="title-img" src="images/fhp_logo.png"></img>
 
 		<ul>
 			<a href="fhp_home.php"><li class="home">Home</li></a>
-			
 			<a href="fhp_institute.php"><li>Institute</li></a>
-			
-			<a href="fhp_contact.html"><li>Contact</li></a>
+			<a href="fhp_contact.php"><li>Contact</li></a>
 			
 			<div class="dropdown">
 				<li>About &#x25BC</li>
 					<div class="dropdown-content">
-						<a href="fhp_about.html">Freedom's Hill Primer</a>
-						<a href="fhp_about_institute.html">Institute</a>
+						<a href="fhp_about.php">Freedom's Hill Primer</a>
+						<a href="fhp_about_institute.php">Institute</a>
 					</div>
 			</div> 
 			<?php 
-			if($_SESSION != null){
-				echo "<a href=\"dashboard.php\"><li>Dashboard</li></a>"; 
-				echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
-			}else{
-				echo "<a href=\"fhp_login.php\"><li>login</li></a>"; 
-			}
-			?> 		
-			
+				if($_SESSION != null){
+					echo "<a href=\"dashboard.php\"><li>Dashboard</li></a>"; 
+					echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
+				} else {
+					echo "<a href=\"fhp_login.php\"><li>login</li></a>"; 
+				}
+			?>
 		</ul>
 	</div>
 	
@@ -42,10 +37,8 @@
 		<h1>Welcome to Freedom's Hill Primer</h1>
 	</div>
 	
-
-	
 	<div id="bottom-text">
-		<img id="scroll-arrow-left" src="double_down_icon.png">
+		<img id="scroll-arrow-left" src="images/double_down_icon.png">
 		<h3 id="bt-title">
 			Freedom's Hill Primer is a platform to promote scholarly 
 			pursuits within the humanities that provide a window towards 
@@ -53,7 +46,7 @@
 		</h3> 
 
 		<!--<hr>-->
-		
+
 		<p id="bt-content">
 			Our website journal is maintained by our faculty and students from the 
 			Southern Wesleyan University community. However, the purpose for our online 
@@ -63,5 +56,4 @@
 		</p>
 	</div>
 </body>
-
 </html>

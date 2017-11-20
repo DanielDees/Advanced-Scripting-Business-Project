@@ -3,11 +3,9 @@
     // Date:        11/16/2017
     // Purpose:     Add a user to the database
 
-
     // TODO: change POST variables to match the form
     // TODO: redirect page to the correct place
     // TODO: add error catching for matching passwords and valid inputs
-
 
     // open connection to database
     require_once('connect.php');

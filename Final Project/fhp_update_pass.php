@@ -3,10 +3,8 @@
     // Date:        11/19/2017
     // Purpose:     Update the password of the user in the database
     
-
     //TODO: redirect to the correct page
     //TODO: error checking for entering the same password
-
 
     // open connection to database
     require_once('connect.php');

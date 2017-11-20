@@ -1,29 +1,23 @@
 <html>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
-<link rel="stylesheet" href="fhp_test.css">
-<title>FHP Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="fhp_test.css">
+	<title>FHP Contact</title>
 </head>
-
 <body>	
-
 	<div id="banner-top">
-		<img id="title-img" src="fhp_logo.png"></img>
+		<img id="title-img" src="images/fhp_logo.png"></img>
 
 		<ul>
-			<a href="fhp_home.html"><li>Home</li></a>
-			
+			<a href="fhp_home.php"><li>Home</li></a>
 			<a href="fhp_institute.php"><li>Institute</li></a>
-			
-			<a href="fhp_contact.html"><li class="contact">Contact</li></a>
+			<a href="fhp_contact.php"><li class="contact">Contact</li></a>
 			
 			<div class="dropdown">
 				<li>About &#x25BC</li>
 					<div class="dropdown-content">
-						<a href="fhp_about.html">Freedom's Hill Primer</a>
-						<a href="fhp_about_institute.html">Institute</a>
+						<a href="fhp_about.php">Freedom's Hill Primer</a>
+						<a href="fhp_about_institute.php">Institute</a>
 					</div>
 			</div> 		
 			
@@ -61,11 +55,6 @@
 		
 		<button tabindex="4" id="contact-form-submit" type="submit">Submit</button>
 	</form>
-	
-	
-	<br><br>
-	
-
-	
+	<br><br>	
 </body>
 </html>

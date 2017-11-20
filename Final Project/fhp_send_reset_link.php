@@ -3,10 +3,8 @@
     // Date:        11/19/2017
     // Purpose:     Send a password reset link to the user
     
-
     //TODO: insert site domain into the email link
     //TODO: change the from email address
-
 
     // open connection to database
     require_once('connect.php');

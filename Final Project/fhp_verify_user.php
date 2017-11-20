@@ -5,16 +5,12 @@
     // Date:        11/15/2017
     // Purpose:     Verify the login credentials of the user    
     
-    
     //TODO: make sure the connection to the database works
     //TODO: make sure the queries are retrieving the correct data
     //TODO: change the headers to redirect to the correct pages
-    
-
-
+      
     // open connection to database
     require_once('connect.php');
-
     
     // get user input and sanitize it
     $username = $_POST['username'];
