@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <div id="banner-top-home">
 	<img id="title-img" src="images/fhp_logo.png"></img>
 
