@@ -105,11 +105,6 @@ li {
 	background-color: #21376d;
 }
 
-.dashboard {
-	background-color: #e64946;
-	background-color: #12beed;
-}
-
 li:hover {
 	background-color: #21376d;
 	cursor: pointer;
@@ -443,18 +438,9 @@ h1 {
 }
 
 #article-preview-holder-left {
-	display: inline-block;
+	float: left;
 	margin: 2em;
-	width: 35em;
-	background-color: #e5e5e5;
-	border-radius: 5px;
-	padding: .5em;
-	transition: linear .3s;
-}
-
-#article-preview-holder {
-	display: inline-block;
-	margin: 2em;
+	margin-left: 5em;
 	width: 33em;
 	background-color: #e5e5e5;
 	border-radius: 5px;
@@ -462,9 +448,25 @@ h1 {
 	transition: linear .3s;
 }
 
-#article-preview-holder:hover {
+#article-preview-holder-right {
+	float: right;
+	margin: 2em;
+	margin-right: 5em;
+	width: 33em;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+	padding: .5em;
+	transition: linear .3s;
+}
+
+#article-preview-holder-right:hover {
 	background-color: #cccccc;
 }
+
+#article-preview-holder-left:hover {
+	background-color: #cccccc;
+}
+
 
 #preview-img {
 	position: relative;
@@ -569,6 +571,15 @@ h1 {
 /*End Admin Login Page*/
 
 /*Admin Dashboard Page*/
+#hello-text {
+	float: right;
+	margin-right: 1em;
+	font-family: "Barlow Condensed", arial;
+	font-size: 2em;
+	margin-top: .5em;
+	color: #21376d;
+}
+
 #block-holder {
 	display: block;
 	margin:auto;
@@ -589,6 +600,20 @@ h1 {
 	transition: linear .3s;
 }
 
+#action-block-left {
+	display: inline-block;
+	height: 15em;
+	width: 15em;
+	background-color: #21376d;
+	border-radius: 5px;
+	text-align: center;	
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	margin-right: 10em;		
+	margin-top: 2em;
+	margin-top: 2em;
+	transition: linear .3s;
+}
+
 #action-block-center {
 	display: inline-block;
 	height: 15em;
@@ -597,14 +622,17 @@ h1 {
 	border-radius: 5px;
 	text-align: center;	
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	margin-right: 10em;	
-	margin-left: 10em;	
+	margin-right: 10em;		
 	margin-top: 2em;
 	margin-top: 2em;
 	transition: linear .3s;
 }
 
 #action-block:hover {
+	opacity: .75;
+}
+
+#action-block-left:hover {
 	opacity: .75;
 }
 
@@ -638,6 +666,31 @@ h1 {
 	width: 6em;
 }
 
+#logout-icon {
+	float:left;
+	margin-left: 1em;
+	margin-top: .5em;
+	width: 3.5em;
+	height: 3.5em;
+	transition: linear .3s;
+}
+
+#logout-icon:hover {
+	opacity: .75;
+}
+
+#public-icon {
+	float:right;
+	margin-right: 1em;
+	margin-top: .5em;
+	width: 3.5em;
+	height: 3.5em;
+	transition: linear .3s;
+}
+
+#public-icon:hover {
+	opacity: .75;
+}
 /*End Admin Dashboard Page*/
 
 /*Admin Page Articles*/
