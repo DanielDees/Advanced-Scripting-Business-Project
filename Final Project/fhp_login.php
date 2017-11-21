@@ -126,6 +126,7 @@
 				
 				<button class="btn btn-primary btn-large btn-block" type="submit">Login</button>
 				<a class="btn btn-primary btn-large btn-block" href="fhp_institute.php">Back</a>
+				<a class="btn btn-primary btn-large btn-block" href="fhp_email_form.php">Forgot Password?</a>
 			</form>
 		</div>
 	</div>
