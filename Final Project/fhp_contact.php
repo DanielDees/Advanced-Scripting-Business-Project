@@ -6,7 +6,7 @@
 </head>
 <body>	
 	<?php 
-		require_once('partials/nav_default.php'); 
+		require_once('partials/default_nav.php'); 
 	?>	
 	
 	<div id="div-contact-section">

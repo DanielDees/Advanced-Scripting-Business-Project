@@ -17,7 +17,7 @@
 </head>
 <body>
 	<?php 
-		require_once('partials/nav_default.php'); 
+		require_once('partials/dashboard_nav.php'); 
 		if($_SESSION['account'] == ""){
 			header("Location: fhp_home.php");
 			exit();

@@ -4,7 +4,7 @@
 	<ul>
 		<a href="fhp_home.php"><li>Home</li></a>
 		<a href="fhp_institute.php"><li>Institute</li></a>
-		<a href="#"><li>Contact</li></a>
+		<a href="fhp_contact.php"><li>Contact</li></a>
 					
 		<div class="dropdown">
 			<li class="about">About &#x25BC</li>

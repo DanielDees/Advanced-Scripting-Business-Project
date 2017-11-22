@@ -15,7 +15,7 @@
 </head>
 <body>
 	<?php 
-		require_once('partials/nav_default.php'); 
+		require_once('partials/dashboard_nav.php'); 
 
 		if ($_SESSION['account'] != "admin") {
 			header("Location: fhp_home.php");
@@ -30,7 +30,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<?php
+	
+				<?php					
 					if(isset($_GET['active']))//checks for active change
 		            {
 		                if($_GET['active'] == 2) //deletes the article

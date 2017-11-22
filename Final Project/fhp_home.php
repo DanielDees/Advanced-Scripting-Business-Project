@@ -1,5 +1,4 @@
 <html>
-<?php session_start(); ?>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="fhp_test.css">
@@ -7,7 +6,7 @@
 </head>
 <body id="home">	
 	<?php 
-		require_once('partials/fhp_home_nav.php');
+		require_once('partials/default_nav.php');
 	?>
 	
 	<div id="main-div">		
