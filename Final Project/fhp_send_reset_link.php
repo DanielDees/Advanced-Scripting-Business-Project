@@ -42,6 +42,7 @@
             mail($to, $subject, $link, $from);
             
             echo "A reset link has been successfully sent to your email address!";
+            echo "<a href='fhp_reset_pass.php?key=" . $user . "'>Click to reset password.</a>";
         }
         else
         {

@@ -8,19 +8,8 @@
 
 <!--Connect to database-->
 <?php
-//Database connection variables
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "cifc_db";
 
-//Set up connection
-$connection = new mysqli($servername, $username, $password, $db);
-
-//Attempt to establish connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-} 
+require_once("connect.php");
 
 //Set up query to add data to table
 $query = "SELECT title, content, author, timestamp 
@@ -28,7 +17,7 @@ $query = "SELECT title, content, author, timestamp
 		  ORDER BY timestamp DESC";
 		  
 //Run query//Run query
-$result = $connection->query($query);
+$result = $conn->query($query);
 
 $formatCnt = 0;
 
@@ -80,9 +69,6 @@ $formatCnt = 0;
 	
 	<!--Get articles and sort by date added-->
 	<?php
-		
-	
-	
 		//Read results
 		while($article = $result->fetch_assoc()) { 	
 	?>	

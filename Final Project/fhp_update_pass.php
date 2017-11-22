@@ -28,6 +28,6 @@
         
         $result = $conn->query($sql);
         
-        //header(Location: CORRECTPAGE);
+        header("Location: fhp_login.php");
     }
 ?>

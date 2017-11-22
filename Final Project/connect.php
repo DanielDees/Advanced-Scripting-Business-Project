@@ -1,6 +1,6 @@
 <?php
 	//Database configuration
-	$db_name = 'Advanced_Scripting_Class';
+	$db_name = 'fhp_database';
 	$db_pass = '';
 	$db_username = 'root';
 	$db_servername = 'localhost';
