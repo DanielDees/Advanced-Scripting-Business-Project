@@ -341,10 +341,10 @@ function get_admin(){
 				</div>
 				<div class="col-md-4">
 					<a class="btn btn-success btn-large btn-block" href="fhp_article_list.php">Article List</a>
-					<a class="btn btn-success btn-large btn-block" href="fhp_category_list.php">Category List</a>
+					<a class="btn btn-success btn-large btn-block" href="fhp_add_article.php">Create Article</a>
 				</div>
-				<div class="col-md-4">
-					<a class="btn btn-primary btn-large btn-block" href="fhp_add_article.php">Create Article</a>
+				<div class="col-md-4">		
+                    <a class="btn btn-primary btn-large btn-block" href="fhp_category_list.php">Category List</a>
 					<a class="btn btn-primary btn-large btn-block" href="fhp_add_category.php">Create Category</a>
 				</div>
 			</div>

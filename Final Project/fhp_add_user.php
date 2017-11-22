@@ -1,159 +1,80 @@
-<!DOCTYPE html>
+<?php
+require_once('partials/login_check.php');
+?>
+
 <html>
-	<head>
-		<?php 
-			require_once('partials/login_check.php'); 
-		?>
-		<meta charset="UTF-8">
-		<title>Login</title>
-		
-		<!-- internal css for the login page -->
-    	<style>
-			* {
-			    box-sizing: border-box;
-			}
-			
-			*:focus {
-				outline: none;
-			}
-			
-			body {
-				font-family: Arial;
-				background-color: #12beed;
-				padding: 50px;
-			}
-			
-			.login {
-				margin: 20px auto;
-				width: 300px;
-			}
-			
-			.login-screen {
-				background-color: #FFF;
-				padding: 20px;
-				border-radius: 5px
-			}
-			
-			.app-title {
-				text-align: center;
-				color: #777;
-			}
-			
-			.login-form {
-				text-align: center;
-			}
-			
-			.control-group {
-				margin-bottom: 10px;
-			}
-			
-			input {
-				text-align: left;
-				background-color: #ECF0F1;
-				border: 2px solid transparent;
-				border-radius: 3px;
-				font-size: 16px;
-				font-weight: 200;
-				padding: 10px 0;
-				padding-left: 5px;
-				width: 250px;
-				transition: border .5s;
-			}
-			
-			input:focus {
-				border: 2px solid #3498DB;
-				box-shadow: none;
-			}
-			
-			.btn {
-				border: 2px solid transparent;
-				background: #3498DB;
-				color: #ffffff;
-				font-size: 16px;
-				line-height: 25px;
-				padding: 10px 0;
-				text-decoration: none;
-				text-shadow: none;
-				border-radius: 3px;
-				box-shadow: none;
-				transition: 0.25s;
-				display: block;
-				width: 250px;
-				margin: 0 auto;
-				margin-bottom: 5px;
-			}
-			
-			.btn:hover {
-				background-color: #2980B9;
-			}
-			
-			.login-link {
-				font-size: 12px;
-				color: #444;
-				display: block;
-				margin-top: 12px;
-			}
-			
-			.error {
-			    color: #f44242;
-			    margin-bottom: 5px;
-			}
-		</style>
-		<!-- end of internal css -->
-	</head>
-	<body>
-		<div class="login">
-			<div class="login-screen">
-				<div class="app-title">
-					<h1>Add New User</h1>
-				</div>
-	
-				<form action="add_user.php" method="post" class="login-form">
-					<?php
-	                    if (isset($_GET['error']))
-	                    {
-	                        echo "<div class='error'>";
-	                            echo "Incorrect username or password!";
-	            			echo "</div>";
-	                    }
-        			?>
-				
-					<div class="control-group">
-						<input type="text" class="login-field" placeholder="First Name" id="first" name="first" required>
-					</div>
-	
-					<div class="control-group">
-						<input class="login-field" placeholder="Last Name" id="last" name="last" required>
-					</div>
 
-					<div class="control-group">
-						<input type="email" class="login-field" placeholder="Email" id="email" name="email" required>
-					</div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-					<div class="control-group">
-						<input class="login-field" placeholder="username" id="username" name="username" required>
-					</div>
+<head>
+	<link rel="stylesheet" href="fhp_test.css">
+	<title>CIFC Admin</title>
+</head>
+
+<body>	
+
+	<div id="banner-top">
+    	<img id="title-img" src="images/fhp_logo.png"></img>
+    	<ul>
+    		<?php 
+    			if($_SESSION['account'] != null){
+    				echo "<a href=\"dashboard.php\"><li class=\"dashboard\">Dashboard</li></a>"; 
+    				echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
+    			}
+    		?> 									
+    	</ul>
+    </div>
+	
+	<div id="div-section-holder-admin">
+		<h1 id="section-name-admin">Add a User</h1>
+	</div>
+	
+	
+
+	<div id="add-user-form-div">
+		<form id="add-form" action="add_user.php" method="post">
+			<br>
+			<h3 id="input-user-label">First Name</h3>
+			<input type="text" tabindex="1" id="add-form-input" name="first" placeholder ="Enter First Name"required>
+			<br>
+			
+			<h3 id="input-label">Last Name</h3>
+			<input type="text" tabindex="2" id="add-form-input" name="last" placeholder ="Enter Last Name"required>
+			<br>
+			
+			<h3 id="input-user-label">Email</h3>
+			<input type="email" tabindex="3" id="add-form-input" name="email" placeholder ="Enter Email"required>
+			<br>
+			
+			<h3 id="input-user-label">Username</h3>
+			<input type="text" tabindex="4" id="add-form-input" name="username" placeholder ="Enter Username" required>
+			<br>
+			
+			<h3 id="input-user-label">Pasword</h3>
+			<input type="password" tabindex="5" id="add-form-input" name="password" placeholder ="Enter Password" required>
+			<br>
+			
+			<h3 id="input-user-label">Re-Enter Pasword</h3>
+			<input type="password" tabindex="6" id="add-form-input" name="repassword" placeholder="Re-Enter Password" required>
+			<br>
+			
+			<!--Option Menu-->
+			<h3 id="input-user-label">Account Type</h3>
+			<!--Replace with Option Menu-->
+			<select tabindex="7" name="account">		
+				<option selected disabled>Select Account Type</option>
+				<option value="ADMIN">Admin</option>
+				<option value="EDITOR">Editor</option>
+				<option value="AUTHOR">Author</option>
+			</select>
 					
-					<div class="control-group">
-						<input type="password" class="login-field" placeholder="Password" id="password" name="password" required>
-					</div>
-
-					<div class="control-group">
-						<input type="password" class="login-field" placeholder="Confrim Password" id="repassword" name="repassword" required>
-					</div>
-
-					<div class="control-group">
-						<select id="account" name="account" style="padding: 16px 20px; font-size: 18px">
-						  <option value="AUTHOR">Author</option>
-						  <option value="EDITOR">Editor</option>
-						  <option value="ADMIN">Admin</option>
-						</select>
-					</div>
-
-					<button class="btn btn-primary btn-large btn-block" type="submit">Create</button>
-					<a class="btn btn-primary btn-large btn-block" href="dashboard.php">Back</a>
-				</form>
-			</div>
+			<br><br>
+			<button tabindex="8" id="add-form-submit-btn" type="submit" name="submit-btn">Submit</button>	
+		
+		</form>
 		</div>
-	</body>
+	
+	<br><br>
+
+</body>
 </html>
