@@ -36,7 +36,7 @@
 
 <body>
 	<?php 
-		require_once('partials/nav_default.php'); 
+		require_once('partials/dashboard_nav.php'); 
 	?>
 <main>
 	<div id="div-section-holder">
