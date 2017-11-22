@@ -29,7 +29,7 @@
 						  <?php get_category(); ?>
 						</select>
 						<br><br>
-				   		<button class="button" type="submit" name="submit">Create Test</button>
+				   		<button class="button" type="submit" name="submit">Create Article</button>
 			    </div>
 	      	</div>
 	  	</form>
