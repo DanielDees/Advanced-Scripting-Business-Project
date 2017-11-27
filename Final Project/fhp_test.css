@@ -3,7 +3,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	margin-bottom: 1.5em;
 	background-color: white;
 	width: 100%;
 	height: 100%;
@@ -49,7 +48,7 @@ body {
 }
 
 #main-div {
-	background-image: url("fhp_img1.jpg");	
+	background-image: url("images/fhp_img1.jpg");	
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -122,7 +121,7 @@ a:focus {
 }
 
 footer {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	color: white;
 	background-color: #333333;
@@ -133,7 +132,7 @@ footer {
 	font-size: .75em;
 	padding-top: .5em;
 	padding-bottom: .5em;
-	
+	z-index: 100000000;
 }
 
 footer a {
@@ -255,7 +254,7 @@ h1 {
 /*End Bottom Div*/
 
 
-/*About Page*/
+/*About Page Page*/
 #div-section-holder {
 	margin-top: 1.5em;
 	padding-left: 2.5em;
@@ -431,54 +430,66 @@ h1 {
 	padding-right: .5em;
 }
 
-#all-article-view {		
-	display: grid;
-	width: 90%;
-	grid-template-columns: 1fr 1fr 1fr;	
-	grid-gap: 5em;			
-	width: 90%;
+#all-article-view {
+	display: block;
 	margin: auto;
+	width: 90%;
+	text-align: center;
 }
 
-#article-preview-holder {			
-	border: 2px;
-	border-color: #e5e5e5;
-	border-style: solid;
-	transition: linear .3s;
+#article-preview-holder-left {
+	float: left;
 	margin: 2em;
+	margin-left: 5em;
+	width: 33em;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+	padding: .5em;
+	transition: linear .3s;
 }
 
-#article-preview-holder:hover {
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25)
+#article-preview-holder-right {
+	float: right;
+	margin: 2em;
+	margin-right: 5em;
+	width: 33em;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+	padding: .5em;
+	transition: linear .3s;
 }
+
+#article-preview-holder-right:hover {
+	background-color: #cccccc;
+}
+
+#article-preview-holder-left:hover {
+	background-color: #cccccc;
+}
+
 
 #preview-img {
 	position: relative;
 	top:0;
 	left: 0;
-	width: 100%;
+	width: 15em;
 }
 
-#title-div {	
+#title-and-info-div {
 	margin: 0;
-	height: 5em;
-	padding-top: 1em;
-	padding-left: .1em;
-	padding-right: .1em;
+	padding: 0;
+	float: right;
+	width: 17em;
+	padding-left: .5em;
+	cursor: pointer;
 }
 
 #art-title {
 	font-family: arial;
-	text-align: center;	
-	width: 100%;
+	padding-right: .3em;
+	text-align: left;	
+	padding: 0;
 	margin: 0;
-}
-
-#info-div {
-	cursor: pointer;
-	position: relative;
-	bottom: 0;
-	text-align: center;
 }
 
 #tiny-icon {
@@ -513,7 +524,12 @@ h1 {
 	width: 25em;
 	margin-top: 2em;
 	text-align: center;
+	/*border: 1px;
+	border-color: #21376d;
+	border-style: solid;
+	border-radius: 5px;*/
 	padding: 1em;
+
 }
 
 #login-img {
@@ -551,6 +567,11 @@ h1 {
 #contact-form-submit:focus {
 	outline: none;
 	color: #21376d;
+}
+
+#forgot-link {
+	color: red;
+	font-family: arial;
 }
 /*End Admin Login Page*/
 
@@ -640,7 +661,8 @@ h1 {
 	border-left: 0;
 	border-bottom: 2px;
 	border-color: #21376d;
-	border-style: solid;	
+	border-style: solid;
+	
 }
 
 #block-icon {
@@ -1055,10 +1077,11 @@ option:hover {
 	    color: white;
 	}
 	
-	#all-article-view {
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 2em;
-		
+	#article-preview-holder {
+		display: block;
+		margin: auto;
+		margin-top: 1em;
+		margin-bottom: 1em;	
 	}
 }
 
@@ -1129,15 +1152,6 @@ option:hover {
 		background-color: transparent;
 		color: #21376d
 	}
-	
-	#all-article-view {
-		grid-template-columns: 1fr;
-		grid-gap: 2em;	
-	}
-	
-	#article-preview-holder {
-		box-shadow: 0 14px 28px rgba(0,0,0,0.25)	
-	}	
 	
 	
 }
