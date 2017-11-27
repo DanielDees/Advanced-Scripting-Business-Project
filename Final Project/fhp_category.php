@@ -22,11 +22,13 @@ require_once('connect.php');
 	
 		<!--Get articles and sort by date added-->
 	<?php
+	    $cat_name = $_GET['id'];
 	
     	//Set up query to add data to table
-    	$query = "SELECT title, content, author, timestamp
-    		  FROM post
-    		  ORDER BY timestamp DESC";
+    	$query = "SELECT title, content, author, timestamp, category
+    		      FROM post
+                  WHERE category = '" . $cat_name . "'
+    		      ORDER BY timestamp DESC";
     	
     	//Run query//Run query
     	$result = $conn->query($query);
