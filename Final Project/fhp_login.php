@@ -34,7 +34,7 @@
 		<input type="password" id="login-input" placeholder="password" name="password" required>
 		<br>
 		
-		<a style= "color: blue" href="fhp_email_form.php">Forgot your password?</a>
+		<a style="color:#21367d; font-family:arial" href="fhp_email_form.php">Forgot your password?</a>
 		
 		<br><br>
 		
