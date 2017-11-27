@@ -8,8 +8,19 @@
 
 <!--Connect to database-->
 <?php
+//Database connection variables
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "cifc_db";
 
-require_once("connect.php");
+//Set up connection
+$connection = new mysqli($servername, $username, $password, $db);
+
+//Attempt to establish connection
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+} 
 
 //Set up query to add data to table
 $query = "SELECT title, content, author, timestamp 
@@ -17,7 +28,7 @@ $query = "SELECT title, content, author, timestamp
 		  ORDER BY timestamp DESC";
 		  
 //Run query//Run query
-$result = $conn->query($query);
+$result = $connection->query($query);
 
 $formatCnt = 0;
 
@@ -67,31 +78,31 @@ $formatCnt = 0;
 	</div>
 	
 	
-	<!--Get articles and sort by date added-->
-	<?php
-		//Read results
-		while($article = $result->fetch_assoc()) { 	
-	?>	
+
 	
 	
 	<!--Article Preview Holder-->
 	<div id="all-article-view">
-		<?php 
-		if($formatCnt % 2 == 0) { ?>
-		<div id="article-preview-holder-left">	
-		<?php }	
-		else { ?>
-			<div id="article-preview-holder-right">	
-		<?php } ?>
+	
+		<!--Get articles and sort by date added-->
+	<?php	
+		//Read results
+		while($article = $result->fetch_assoc()) { 	
+	?>	
+	
+		<div id="article-preview-holder">	
 				<!--image-->
-				<img id="preview-img" src="img1.jpg">
+				<img id="preview-img" src="img3.jpg"></img>
 				<!--title and info-->
-				<div id="title-and-info-div">
-					<!--Title-->
+				
+				<!--Title-->
+				<div id="title-div">
 					<h2 id="art-title">
 						<?php echo $article['title'];?>
 					</h2>
+				</div>
 					
+				<div id="info-div">
 					<!--Info-->
 					<img id="tiny-icon"src="author_icon.png"></img>
 					<h4 id="info-text"> 
@@ -104,18 +115,16 @@ $formatCnt = 0;
 					</h4>
 				</div>
 			</div>
-		</div>
-		
-		<?php 
-		$formatCnt++;
-		} 
-		?>
+			
+		<?php } ?>			
+	</div>	
 
 
-<footer>
-	<a href="cifc_admin_login_form.html">Login</a>
-</footer>
 </body>
 
+<!--
+<footer>
+	<a href="cifc_admin_login_form.html">Login</a>
+</footer>-->
 
 </html>
