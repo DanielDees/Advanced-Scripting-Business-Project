@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+require_once('connect.php');
+
+//Set up query to add data to table
+$query = "SELECT name
+		  FROM categories";
+
+//Run query//Run query
+$result = $conn->query($query);
+?>
 <div id="banner-top">
 	<img id="title-img" src="images/fhp_logo.png"></img>
 
@@ -6,23 +17,22 @@
 	<ul>
 		<a href="fhp_home.php"><li>Home</li></a>
 		<a href="fhp_institute.php"><li class="institute">Institute</li></a>
-		<a href="#"><li>Recent Posts</li></a>
 		<div class="dropdown">
 			<li>Categories &#x25BC</li>
 				<div class="dropdown-content">
-					<a href="#">A</a>
-					<a href="#">B</a>
-					<a href="#">C</a>
-					<a href="#">D</a>
-					<a href="#">E</a>
-					<a href="#">F</a>
-					<a href="#">G</a>
-					<a href="#">H</a>
-					<a href="#">I</a>
+				
+				<?php 
+				while($row = $result->fetch_assoc())
+				{
+				?>
+					<a href="fhp_category.php?id=<?php echo $row['name'];?>"><?php echo $row['name'];?></a>
+				<?php 
+				}
+				?>
 				</div>
 		</div>					
 		
-		<a href="#"><li>Contact</li></a>	
+		<a href="fhp_contact.php"><li>Contact</li></a>	
 
 		<div class="dropdown">
 			<li>About &#x25BC</li>
