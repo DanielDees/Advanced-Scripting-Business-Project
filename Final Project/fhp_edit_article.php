@@ -1,8 +1,7 @@
+<?php require_once('partials/login_check.php'); ?>
 <html>
 <head>
 	<?php
-		require_once('partials/login_check.php'); 
-
 		//checks for get set and kicks if not set
 		if(isset($_GET['id'])){
 		    $id = $_GET['id'];
@@ -49,12 +48,17 @@
 		        <div class="col-md-12">
 		        	<?php get_article_edit($id); ?>
 				    <br><br>
-				    Category:
+				    <h3 style="font-weight: normal">Category:</h3>
 				    <select id="artcategory" name="artcategory">
 					  <?php get_category_edit($results['category']); ?>
 					</select>
-					<br><br>
-				    <button class="button" type="submit" name="submit">Update Article</button>
+					<br><br><br>
+					
+					<!--Get author-->
+					<?php get_author_edit($id)?>
+		      	    <br>
+					
+				    <button id="contact-form-submit" type="submit" name="submit">Submit</button>
 			    </div>
 	      	</div>
 	  	</form>
@@ -65,13 +69,13 @@
 
 		              $title = escape_string($_POST['arttitle']);
 		              $content = escape_string($_POST['artcontent']);
-		              $author = $_SESSION['firstname'] . " " . $_SESSION['lastname'];
+		              $author = $_POST['artauthor'];
 		              $date = date("Y-m-d h:i:sH");
 		              $date = substr($date, 0, -2);
 		              $category = escape_string($_POST['artcategory']);
 		              $id = $results['id'];
 
-		              $query = query("UPDATE Post SET title='$title', content='$content', timestamp='$date', category = '$category' WHERE id=$id");
+		              $query = query("UPDATE Post SET title='$title', content='$content', timestamp='$date', category = '$category', author='$author' WHERE id=$id");
 		              confirm($query);
 
 		             echo "<script type=\"text/javascript\">window.location.replace(\"fhp_article_list.php\")</script>";

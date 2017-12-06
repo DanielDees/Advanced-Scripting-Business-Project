@@ -28,10 +28,10 @@
 		<img id="login-img" src="images/loginImg.png"></img>
 		
 		<!--username input-->
-		<input type="text" id="login-input" placeholder="username" name="username" required>
+		<input tabindex="1" type="text" id="login-input" placeholder="username" name="username" required>
 		<br>
 		<!--password input-->
-		<input type="password" id="login-input" placeholder="password" name="password" required>
+		<input tabindex="2"type="password" id="login-input" placeholder="password" name="password" required>
 		<br>
 		
 		<a style="color:#21367d; font-family:arial" href="fhp_email_form.php">Forgot your password?</a>
@@ -39,7 +39,7 @@
 		<br><br>
 		
 		<!--Submit Button-->
-		<button type="submit" id="contact-form-submit">Submit</button>
+		<button tabindex="3" type="submit" id="contact-form-submit">Submit</button>
 	</form>	
 </div>
 

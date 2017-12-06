@@ -1,3 +1,11 @@
+<?php 
+	require_once('partials/dashboard_nav.php'); 
+	if($_SESSION['account'] == ""){
+		header("Location: fhp_home.php");
+		exit();
+	}
+?>
+
 <html>
 <head>
 	<?php
@@ -16,16 +24,10 @@
 	<title>FHP Article List</title>
 </head>
 <body>
-	<?php 
-		require_once('partials/dashboard_nav.php'); 
-		if($_SESSION['account'] == ""){
-			header("Location: fhp_home.php");
-			exit();
-		}
-	?>
+
 <main>
-	<div id="div-section-holder">
-		<h1 id="section-name">Articles</h1>
+	<div id="div-section-holder-admin">
+		<h1 id="section-name-admin">Articles</h1>
 	</div>
 
 	<div class="container">
@@ -42,14 +44,13 @@
 			                  $id = $_GET['id'];
 			                  $query = query("DELETE FROM Post where id=$id");
 			                  confirm($query);
-			                  redirect("fhp_article_list.php");
+			                
 			                } else
 			                {
 			                  $active = $_GET['active'];  //changes from active to inactive
 			                  $id = $_GET['id'];
 			                  $query = query("UPDATE Post set is_live = '$active' where id=$id");
 			                  confirm($query);
-			                  redirect("fhp_article_list.php");
 			                }
 			            }
 		        	}

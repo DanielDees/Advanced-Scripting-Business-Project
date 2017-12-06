@@ -1,3 +1,12 @@
+<?php 
+	require_once('partials/dashboard_nav.php'); 
+
+	if ($_SESSION['account'] != "admin") {
+		header("Location: fhp_home.php");
+		exit();
+	}
+?>
+
 <html>
 <head>
 	<?php
@@ -14,17 +23,11 @@
 	<title>FHP About</title>
 </head>
 <body>
-	<?php 
-		require_once('partials/dashboard_nav.php'); 
 
-		if ($_SESSION['account'] != "admin") {
-			header("Location: fhp_home.php");
-			exit();
-		}
-	?>
 <main>
-	<div id="div-section-holder">
-		<h1 id="section-name">Users</h1>
+    
+    <div id="div-section-holder-admin">
+		<h1 id="section-name-admin">Users</h1>
 	</div>
 
 	<div class="container">
@@ -40,7 +43,6 @@
 		                  $id = $_GET['id'];
 		                  $query = query("DELETE FROM Users where id=$id");
 		                  confirm($query);
-		                  redirect("fhp_user_list.php");
 		                }
 		            }
 					get_users();           

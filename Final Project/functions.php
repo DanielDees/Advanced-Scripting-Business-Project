@@ -68,7 +68,7 @@ function get_article(){
 		$query = query("SELECT * FROM Post WHERE author = '$name'");
 	  	confirm($query);	
 	}else{
-		$query = query("SELECT * FROM Post");
+		$query = query("SELECT * FROM Post ORDER BY timestamp DESC");
 	  	confirm($query);
 	}
   	//checks to see if admin or editor is logged in
@@ -83,7 +83,7 @@ $category = <<< DELIMETER
       	<div class="row">
     	<div class="col-md-8">
           <h2>{$row['title']}</h2>
-          <p style="font-size: 20px">{$row['content']}</p>
+          <!--<p style="font-size: 20px">{$row['content']}</p>-->
           <br>
           <div style="position: absolute; bottom: 0; left: 10;"><em>{$row['author']}</em>, {$row['timestamp']}
           </div>
@@ -95,8 +95,8 @@ $category = <<< DELIMETER
 			<a class="btn btn-danger" href="fhp_article_list.php?id={$row['id']}&active=2">Delete</a>
 		</div>
 		<div class="col-lg-2">
-			<a class="btn btn-warning btn-lg  my-4" href="fhp_article_list.php?id={$row['id']}&active=1">Inactive</a>
-			<a class="btn btn-primary btn-lg  my-4" href="fhp_edit_article.php?id={$row['id']}">Edit Article</a>
+			<a class="btn btn-success btn-lg  my-4" href="fhp_article_list.php?id={$row['id']}&active=1">Click to Publish</a>
+			<a class="btn btn-primary btn-lg  my-4" href="fhp_edit_article.php?id={$row['id']}">Edit / View Article</a>
 		</div>
       	</div>
 
@@ -111,7 +111,7 @@ $category = <<< DELIMETER
       	<div class="row">
     	<div class="col-md-8">
           <h2>{$row['title']}</h2>
-          <p style="font-size: 20px">{$row['content']}</p>
+          <!--<p style="font-size: 20px">{$row['content']}</p>-->
           <br>
           <div style="position: absolute; bottom: 0; left: 10;"><em>{$row['author']}</em>, {$row['timestamp']}
           </div>
@@ -120,8 +120,8 @@ $category = <<< DELIMETER
 			<h3><em>Category:</em></h3> {$row['category']}
 		</div>
 		<div class="col-lg-2">
-			<a class="btn btn-success btn-lg  my-4" href="fhp_article_list.php?id={$row['id']}&active=0">Active</a>
-			<a class="btn btn-primary btn-lg  my-4" href="fhp_edit_article.php?id={$row['id']}">Edit Article</a>
+			<a class="btn btn-danger btn-lg  my-4" href="fhp_article_list.php?id={$row['id']}&active=0">Click to Unpublish</a>
+			<a class="btn btn-primary btn-lg  my-4" href="fhp_edit_article.php?id={$row['id']}">Edit / View Article</a>
 		</div>
       	</div>
 
@@ -170,7 +170,7 @@ DELIMETER;
 //BEGIN fhp_category_list.php
 function get_category_list(){
 		//outputs categories to be deleted
-		$query = query("SELECT * FROM categories");
+		$query = query("SELECT * FROM Categories");
 	  	confirm($query);
 
   	//checks to see if admin or editor is logged in
@@ -272,14 +272,28 @@ function get_article_edit($id){
     $results = fetch_array($query);
 
     $article = <<< DELIMETER
-	        <h3>Article Title:</h3>
-        <textarea name="arttitle" class="tinymce-100">{$results['title']}</textarea>
+	    <h3 style="font-weight: normal" >Article Title:</h3>
+        <input name="arttitle" id="add-form-input" value="{$results['title']}"></input>
       <br>
-	    <h3>Content:</h3>
+	    <h3 style="font-weight: normal">Content:</h3>
       <textarea name="artcontent" class="tinymce-300">{$results['content']}</textarea>
 DELIMETER;
 	
 	echo $article;
+}
+
+function get_author_edit($id) {
+    
+    //receieves ID from page to select correct author from database
+
+    $query = query("SELECT author FROM Post WHERE id = '$id'");
+    confirm($query);
+    $results = fetch_array($query);
+    
+	echo "<h3 style='font-weight: normal'>Author:</h3>";
+	echo "<input name='artauthor' id='add-form-input' value='" . $results['author'] . "'></input>";
+  	echo "<br>";
+    
 }
 //END fhp_edit_article.php
 
@@ -287,7 +301,7 @@ DELIMETER;
 //BEGIN fhp_user_list.php
 function get_users(){
 	
-		$query = query("SELECT * FROM users");
+		$query = query("SELECT * FROM Users");
 	  	confirm($query);
 
   	//checks to see if admin or editor is logged in
@@ -303,7 +317,7 @@ $users = <<< DELIMETER
 			<br>
 			<h4>Account Type: <em>{$row['account_type']}</em></h4>
         </div>
-		<div class="col-md-2 offset-md-4">
+		<div class="col-md-3 offset-md-3">
 		<a class="btn btn-danger btn-block float-right" href="fhp_user_list.php?id={$row['Id']}&active=2">Delete User</a>
 		</div>
       	</div>
@@ -337,15 +351,15 @@ function get_admin(){
 			<div class="row">
 				<div class="col-md-4">					
 					<a class="btn btn-warning btn-large btn-block" href="fhp_user_list.php">User List</a>
-					<a class="btn btn-warning btn-large btn-block" href="fhp_add_user.php">Create User</a>
+					<a class="btn btn-warning btn-large btn-block mb-2" href="fhp_add_user.php">Create User</a>
 				</div>
 				<div class="col-md-4">
 					<a class="btn btn-success btn-large btn-block" href="fhp_article_list.php">Article List</a>
-					<a class="btn btn-success btn-large btn-block" href="fhp_add_article.php">Create Article</a>
+					<a class="btn btn-success btn-large btn-block mb-2" href="fhp_add_article.php">Create Article</a>
 				</div>
 				<div class="col-md-4">		
                     <a class="btn btn-primary btn-large btn-block" href="fhp_category_list.php">Category List</a>
-					<a class="btn btn-primary btn-large btn-block" href="fhp_add_category.php">Create Category</a>
+					<a class="btn btn-primary btn-large btn-block mb-2" href="fhp_add_category.php">Create Category</a>
 				</div>
 			</div>
 		</div>
@@ -368,11 +382,11 @@ function get_editor(){
 			<div class="row">
 				<div class="col-md-3 offset-md-2">
 					<a class="btn btn-success btn-large btn-block" href="fhp_article_list.php">Article List</a>
-					<a class="btn btn-success btn-large btn-block" href="fhp_category_list.php">Category List</a>
+					<a class="btn btn-success btn-large btn-block mb-2" href="fhp_category_list.php">Category List</a>
 				</div>
 				<div class="col-md-3 offset-md-2">
 					<a class="btn btn-primary btn-large btn-block" href="fhp_add_article.php">Create Article</a>
-					<a class="btn btn-primary btn-large btn-block" href="fhp_add_category.php">Create Category</a>
+					<a class="btn btn-primary btn-large btn-block mb-2" href="fhp_add_category.php">Create Category</a>
 				</div>
 			</div>
 		</div>
@@ -397,7 +411,7 @@ function get_author(){
 					<a class="btn btn-success btn-large btn-block" href="fhp_article_list.php">Article List</a>
 				</div>
 				<div class="col-md-3 offset-md-2">
-					<a class="btn btn-primary btn-large btn-block" href="fhp_add_article.php">Create Article</a>
+					<a class="btn btn-primary btn-large btn-block mb-2" href="fhp_add_article.php">Create Article</a>
 				</div>
 			</div>
 		</div>

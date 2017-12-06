@@ -5,7 +5,7 @@ require_once('connect.php');
 
 //Set up query to add data to table
 $query = "SELECT name
-		  FROM categories";
+		  FROM Categories";
 
 //Run query//Run query
 $result = $conn->query($query);
@@ -40,7 +40,8 @@ $result = $conn->query($query);
 					<a href="fhp_about.php">Freedom's Hill Primer</a>
 					<a href="fhp_about_institute.php">Institute</a>
 				</div>
-		</div>			
+		</div>	
+		
 		<?php 
 			if($_SESSION != null){
 				echo "<a href=\"dashboard.php\"><li>Dashboard</li></a>"; 

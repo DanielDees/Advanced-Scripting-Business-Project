@@ -1,8 +1,10 @@
+<?php 
+	require_once('partials/login_check.php'); 
+?>
+
 <html>
 <head>
-	<?php 
-		require_once('partials/login_check.php'); 
-	?>
+
 	<title>FHP About</title>
 </head>
 <body>
@@ -10,22 +12,21 @@
 		require_once('partials/dashboard_nav.php'); 
 	?>
 <main>
-	<div id="div-section-holder">
-		<h1 id="section-name">Add Category</h1>
-	</div>
-
-	<div id="div-section-holder">
+	
+		<div id="div-section-holder-admin">
+		    <h1 id="section-name-admin">Create a Category</h1>
+    	</div>
+        <br>
+	
 		<form action="" method="post">
 	      	<div class="row">
 		        <div class="col-md-12">
-			        <h3>Category:</h3>
-			       	<textarea name="artcategory" class=""></textarea>
+			       	<input style="display: block; margin: auto; width: 50%" name="artcategory" id="add-form-input"></input>
 					<br><br>
-				    <button class="button" type="submit" name="submit">Create category</button>
+				    <button id="contact-form-submit" type="submit" name="submit">Submit</button>
 			    </div>
 	      	</div>
 	  	</form>
-	</div>
 	<?php
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		  $category = escape_string($_POST['artcategory']);

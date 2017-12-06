@@ -1,3 +1,11 @@
+<?php 
+	require_once('partials/dashboard_nav.php'); 
+	if($_SESSION['account'] == "" || $_SESSION['account'] == "author"){
+		header("Location: fhp_home.php");
+		exit();
+	}
+?>
+
 <html>
 <head>
 	<?php
@@ -14,16 +22,10 @@
 	<title>FHP Category</title>
 </head>
 <body>
-	<?php 
-		require_once('partials/dashboard_nav.php'); 
-		if($_SESSION['account'] == "" || $_SESSION['account'] == "author"){
-			header("Location: fhp_home.php");
-			exit();
-		}
-	?>
+    
 <main>
-	<div id="div-section-holder">
-		<h1 id="section-name">Category</h1>
+	<div id="div-section-holder-admin">
+		<h1 id="section-name-admin">Categories</h1>
 	</div>
 
 	<div class="container">
@@ -36,9 +38,8 @@
 		                {
 		                  $active = $_GET['active'];
 		                  $id = $_GET['id'];
-		                  $query = query("DELETE FROM categories where id=$id");
+		                  $query = query("DELETE FROM Categories where id=$id");
 		                  confirm($query);
-		                  redirect("fhp_category_list.php");
 		                }
 		            }
 					get_category_list();           

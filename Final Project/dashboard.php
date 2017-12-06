@@ -1,8 +1,10 @@
+<?php 
+	require_once('partials/login_check.php'); 
+?>
+
 <html>
 <head>
-	<?php 
-		require_once('partials/login_check.php'); 
-	?>
+
 	<title>FHP Dashboard</title>
 </head>
 <body>

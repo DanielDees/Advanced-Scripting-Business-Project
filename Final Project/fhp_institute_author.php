@@ -15,6 +15,12 @@
 </div>
 
 <body>	
+
+    <?php $author = $_GET['id'];?>
+
+   
+	<h2 style="font-family: 'Barlow Condensed'; margin-left: 1em; font-size: 2em;">Articles by <?php echo $author ?></h2>
+	
 	
 	<!--Article Preview Holder-->
 	<div id="all-article-view">
@@ -25,7 +31,7 @@
     	//Set up query to add data to table
     	$query = "SELECT id, title, content, author, DATE_FORMAT(timestamp, '%b %e, %Y %r') AS timestamp, category
         		  FROM Post
-        		  WHERE is_live = 1
+        		  WHERE is_live = 1 AND author = '$author'
         		  ORDER BY TIMESTAMP(timestamp) DESC";
     	
     	//Run query//Run query
@@ -34,9 +40,10 @@
 		//Read results
 		while($article = $result->fetch_assoc()) { 	
 	?>	
-	    <a href="fhp_view_article.php? id=<?php echo $article['id'];?>">
+	    <a href="fhp_view_article.php?id=<?php echo $article['id'];?>">
 		<div id="article-preview-holder">	
 			<!--image-->
+			<!--<a href="fhp_view_article.php?id=<?php echo $article['id'];?>">-->
     			<?php
     			    $image = $article['content'];
     			    $startPos = strpos($image, "<img");
@@ -47,6 +54,7 @@
     			    
     			    echo $newImage;
     			?>
+			<!--</a>-->
 			<!--title and info-->
 			
 			<!--Title-->

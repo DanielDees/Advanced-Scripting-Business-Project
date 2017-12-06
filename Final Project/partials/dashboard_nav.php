@@ -6,6 +6,7 @@
 		<?php 
 			if($_SESSION['account'] != null){
 				echo "<a href=\"dashboard.php\"><li class=\"dashboard\">Dashboard</li></a>"; 
+				echo "<a href=\"fhp_institute.php\"><li>Institute</li></a>";
 				echo "<a href=\"logout.php\"><li>Logout</li></a>"; 
 			}
 		?> 									

@@ -1,8 +1,8 @@
 <?php
 	//Database configuration
-	$db_name = 'fhp_database';
-	$db_pass = '';
-	$db_username = 'root';
+	$db_name = 'id3480846_cifc_db';
+	$db_pass = 'mydb365';
+	$db_username = 'id3480846_cifc123';
 	$db_servername = 'localhost';
 
 	//Create connection
